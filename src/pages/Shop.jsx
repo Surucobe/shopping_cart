@@ -2,7 +2,7 @@ import { useOutletContext } from "react-router-dom";
 
 import nothingToSee from '../assets/nothing_to_see.jpg'
 
-import '../styles/Shop.css';
+import '../styles/shop.css';
 
 const Shop = () => {
   const cart = useOutletContext().cart
