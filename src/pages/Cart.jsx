@@ -44,7 +44,7 @@ const Cart = () => {
           ))}
         </div>
       ):(
-        <div>
+        <div className='empty_cart'>
           <h1>Shopping Cart</h1>
           <p>Your cart is empty.</p>
           <img src={emptyCart} alt="cart is empty" />
