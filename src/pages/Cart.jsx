@@ -1,6 +1,5 @@
 import { useOutletContext } from 'react-router-dom';
 
-import '../styles/shop.css';
 import '../styles/cart.css';
 
 import emptyCart from '../assets/empty-cart.png';
