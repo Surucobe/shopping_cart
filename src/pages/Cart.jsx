@@ -1,5 +1,7 @@
 import { useOutletContext } from 'react-router-dom';
 
+import ItemCart from '../components/CartItem';
+
 import '../styles/Cart.css';
 
 import emptyCart from '../assets/empty-cart.png';
@@ -14,34 +16,12 @@ const Cart = () => {
   return (
     <div className='cart'>
       {cartItems.length > 0 ? (
-        <div className='shop'>
-          {cartItems.map(item => (
-            <div key={item.id} className='cart_item'>
-              <img src={item.image} alt="" />
-              <h3>{item.title}</h3>
-              <div className="item_info">
-                <div>
-                  <h3>{item.category}</h3>
-                  <h3>{item.price} $</h3>
-                  <h3>In cart: {item.quantity}</h3>
-                </div>
-                <div className='cart_buttons'>
-                  <button onClick={() => reduceAmount(item)}>
-                  -
-                  </button>
-                  <button onClick={() => addToCart(item)}>
-                  +
-                  </button>
-                </div>
-              </div>
-              <span className='remove'
-                onClick={() => removeItem(item)}
-              >
-                X
-              </span>
-            </div>
-          ))}
-        </div>
+        <ItemCart
+          cartItems={cartItems}
+          reduceAmount={reduceAmount}
+          addToCart={addToCart}
+          removeItem={removeItem}
+        />
       ):(
         <div className='empty_cart'>
           <h1>Shopping Cart</h1>

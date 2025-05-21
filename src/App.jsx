@@ -10,8 +10,6 @@ async function getItems(callback) {
   const response = await fetch("https://fakestoreapi.com/products");
   const data = await response.json();
 
-  
-  
   callback(
     data.map(item => {
       return {...item, quantity: 0}
