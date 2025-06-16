@@ -1,9 +1,8 @@
 import { useOutletContext } from "react-router-dom"
 
-const Home = () => {
-  const inventory = useOutletContext().inventory;
+import '../styles/home.css'
 
-  const createTrendingItem = () => {
+  const createTrendingItem = (inventory) => {
     const newArr = []
 
     for(let i = 0; i < 4 ; i++) {
@@ -18,7 +17,10 @@ const Home = () => {
     return newArr
   }
 
-  const trendingItems = createTrendingItem();
+const Home = () => {
+  const inventory = useOutletContext().inventory;
+
+  const trendingItems = createTrendingItem(inventory);
 
   console.log(trendingItems);
 
@@ -27,10 +29,23 @@ const Home = () => {
       <h1>Welcome to our store</h1>
 
       <div className="highlight">
-        <h3>Trending now</h3>
 
-        <div className="trending_items">
-          {/* Map through your trending items here */}
+        {console.log(inventory.length)}
+
+        <div className="trending_items_container">
+          {inventory.length > 0 ? (
+            trendingItems.map(item => (
+              <div key={item.id} className="trending_item">
+                <h2>{item.title}</h2>
+                <div className="image-container"
+                style={{ backgroundImage: `url(${item.image})` }}
+                >
+                </div>
+              </div>
+            ))
+          ) : (
+            <h2>Loading...</h2>
+          )}
         </div>
       </div>
     </>
