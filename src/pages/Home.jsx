@@ -17,6 +17,13 @@ import '../styles/home.css'
     return newArr
   }
 
+  const shortenedTitle = (title) => {
+    if (title.length > 20) {
+      return title.substring(0, 17) + '...';
+    }
+    return title;
+  }
+
 const Home = () => {
   const inventory = useOutletContext().inventory;
 
@@ -30,13 +37,11 @@ const Home = () => {
 
       <div className="highlight">
 
-        {console.log(inventory.length)}
-
         <div className="trending_items_container">
           {inventory.length > 0 ? (
             trendingItems.map(item => (
               <div key={item.id} className="trending_item">
-                <h2>{item.title}</h2>
+                <h2>{shortenedTitle(item.title)}</h2>
                 <div className="image-container"
                 style={{ backgroundImage: `url(${item.image})` }}
                 >

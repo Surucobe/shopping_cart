@@ -1,3 +1,10 @@
+const shortenedTitle = (title) => {
+    if (title.length > 20) {
+      return title.substring(0, 17) + '...';
+    }
+    return title;
+  }
+
 const ItemShop = ({inventory, cart, func}) => {
 
   return(
@@ -5,7 +12,7 @@ const ItemShop = ({inventory, cart, func}) => {
           {inventory.map(item => (
             <div key={item.id} className='shop_item'>
               <img src={item.image} alt="" />
-              <h3>{item.title}</h3>
+              <h3>{shortenedTitle(item.title)}</h3>
               <h3>In cart: {
                   cart.some(elm => elm.id === item.id) ? 
                   cart.find(elm => elm.id == item.id).quantity 

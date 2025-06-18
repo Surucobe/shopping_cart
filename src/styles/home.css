@@ -1,11 +1,17 @@
 .highlight {
   display: flex;
   justify-content: center;
+  padding-bottom: 15px;
 }
 
 .trending_items_container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  gap: 5px;
+}
+.trending_items_container > :first-child {
+  flex-basis: 100%;
 }
 
 .trending_item {
@@ -14,6 +20,8 @@
   flex-flow: column;
   width: 300px;
   height: 300px;
+  flex: 1 1 0;
+  min-width: 0;
 }
 .image-container {
   width: 100%;
