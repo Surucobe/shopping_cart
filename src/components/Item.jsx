@@ -16,7 +16,7 @@ const ItemShop = ({inventory, cart, func}) => {
               <h3>In cart: {
                   cart.some(elm => elm.id === item.id) ? 
                   cart.find(elm => elm.id == item.id).quantity 
-                  : 'no'
+                  : '0'
                 }</h3>
               <div className="item_info">
                 <div>

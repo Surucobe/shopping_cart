@@ -33,7 +33,7 @@ const Home = () => {
 
   return(
     <>
-      <h1>Welcome to our store</h1>
+      <h1>Trending now!</h1>
 
       <div className="highlight">
 

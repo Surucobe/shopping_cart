@@ -12,6 +12,8 @@
 }
 .trending_items_container > :first-child {
   flex-basis: 100%;
+  flex-flow: nowrap;
+  align-items: center;
 }
 
 .trending_item {
