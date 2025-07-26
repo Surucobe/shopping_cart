@@ -5,7 +5,7 @@ import '../styles/home.css'
   const createTrendingItem = (inventory) => {
     const newArr = []
 
-    for(let i = 0; i < 4 ; i++) {
+    while(newArr.length < 4 && newArr.length < inventory.length) {
       const randomIndex = Math.floor(Math.random() * inventory.length);
       const randomItem = inventory[randomIndex];
 
@@ -38,7 +38,7 @@ const Home = () => {
       <div className="highlight">
 
         <div className="trending_items_container">
-          {inventory.length > 0 ? (
+          {inventory.length > 3 ? (
             trendingItems.map(item => (
               <div key={item.id} className="trending_item">
                 <h2>{shortenedTitle(item.title)}</h2>

@@ -13,6 +13,18 @@ const Cart = () => {
   const addToCart = useOutletContext().addToCart;
   const clearCart = useOutletContext(). clearCart;
 
+  const cartTotal = () => {
+    let total = 0;
+    
+    cartItems.forEach(element => {      
+      total += element.price * element.quantity;
+    });
+
+    console.log(total)
+
+    return total
+  }
+
   return (
     <div className='cart'>
       {cartItems.length > 0 ? (
@@ -37,6 +49,7 @@ const Cart = () => {
         <button onClick={() => clearCart()}>
           Clear
         </button>
+        <h2>Current Total: {cartTotal()}</h2>
       </div>
     </div>
   );
